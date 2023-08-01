@@ -66,7 +66,8 @@ public class FastInputIME extends InputMethodService {
     public View onCreateInputView() {
         KeyboardView keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
 
-        Keyboard keyboard = new Keyboard(this, R.xml.keyboard);
+        // Keyboard keyboard = new Keyboard(this, R.xml.keyboard);
+        Keyboard keyboard = new Keyboard(this, R.xml.keyboard_empty);
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(new MyKeyboardActionListener());
 
