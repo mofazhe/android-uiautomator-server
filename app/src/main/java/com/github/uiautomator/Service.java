@@ -11,9 +11,11 @@ import android.graphics.Color;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.IBinder;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+
 import android.util.Log;
 
 import com.github.uiautomator.monitor.AbstractMonitor;
@@ -78,7 +80,8 @@ public class Service extends android.app.Service {
                 .setTicker(getString(R.string.monitor_service_ticker))
                 .setContentTitle(getString(R.string.monitor_service_title))
                 .setContentText(getString(R.string.monitor_service_text))
-                .setContentIntent(PendingIntent.getActivity(this, NOTIFICATION_ID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+                .setContentIntent(PendingIntent.getActivity(this, NOTIFICATION_ID, notificationIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE))
                 .setWhen(System.currentTimeMillis());
         Notification notification = builder.build();
         startForeground(NOTIFICATION_ID, notification);
